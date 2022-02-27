@@ -1,8 +1,9 @@
-const express = require("express");
-const res = require("express/lib/response");
-const dotenv = require("dotenv").config();
-const connectDB = require("./config/db");
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./config/db.js";
+import res from "express/lib/response.js";
 
+dotenv.config();
 const app = express();
 
 try {
