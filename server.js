@@ -11,6 +11,10 @@ try {
   res.status(500).json({ success: false, error: "Server Error" });
 }
 
+//JSON and URL Parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => {
   res.send("Welcome to Digital Business Card API");
 });
