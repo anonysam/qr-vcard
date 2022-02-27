@@ -1,1 +1,1 @@
-# Create Dynamic Business Cards
+# Create Dynamic Digital Business Cards
