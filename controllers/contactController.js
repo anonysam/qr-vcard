@@ -1,6 +1,6 @@
-import ErrorResponse from "../utils/errorResponse.js";
-import asyncHandler from "../middlewares/asyncHandler.js";
-import { contactService } from "../services/index.js";
+import ErrorResponse from "../utils/errorResponse";
+import asyncHandler from "../middlewares/asyncHandler";
+import { contactService } from "../services";
 
 // @route   GET /contact
 // @desc    GET all contacts

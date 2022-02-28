@@ -1,4 +1,4 @@
 import express from "express";
-import * as contactService from "./contactService.js";
+import * as contactService from "./contactService";
 
 export { contactService };

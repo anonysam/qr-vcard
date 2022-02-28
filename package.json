@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "description": "Create dynamic VCARD with QR",
   "main": "server.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --exec babel-node server.js",
     "prod": "babel-watch server.js"
-
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +19,7 @@
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
     "babel-node": "^0.0.1-security",
     "babel-watch": "^7.7.0",
     "nodemon": "^2.0.15"

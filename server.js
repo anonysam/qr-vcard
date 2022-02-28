@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
-import connectDB from "./config/db.js";
-import errorHandler from "./middlewares/errorHandler.js";
-import routes from "./routes/index.js";
+import connectDB from "./config/db";
+import errorHandler from "./middlewares/errorHandler";
+import routes from "./routes";
 
 dotenv.config();
 const app = express();
