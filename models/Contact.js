@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
+
 const { Schema } = mongoose;
 
 const ContactSchema = new Schema({
+  uuid: String,
   firstName: String,
   lastName: String,
-  email: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
   mobile: String,
   company: String,
   position: String,

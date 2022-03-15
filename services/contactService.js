@@ -1,4 +1,5 @@
 import Contact from "../models/Contact";
+import { nanoid } from "nanoid";
 
 const getOne = async function ({ id }) {
   return await Contact.findById(id);
@@ -9,6 +10,7 @@ const getAll = async function ({ filter = {}, limit = 10 }) {
 };
 
 const add = async function (data) {
+  data.uuid = nanoid(12);
   return await Contact.create(data);
 };
 
