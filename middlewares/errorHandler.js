@@ -2,14 +2,14 @@ import ErrorResponse from "../utils/errorResponse";
 
 const errorHandler = (err, req, res, next) => {
   let error = { ...err };
-  error.message - err.message;
+  error.message = err.message;
   //Log to console
   console.log(err.stack);
 
   //Bad Object ID Mongodb
   if (err.name === "CastError") {
     const message = `Object not found with id of ${err.value}`;
-    errpr = new ErrorResponse(message, 404);
+    error = new ErrorResponse(message, 404);
   }
 
   //Duplicate key
