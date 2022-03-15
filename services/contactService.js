@@ -1,5 +1,7 @@
-import Contact from "../models/Contact";
 import { nanoid } from "nanoid";
+import generateVcard from "../utils/generateVcard";
+import Contact from "../models/Contact";
+import res from "express/lib/response";
 
 const getOne = async function ({ id }) {
   return await Contact.findById(id);
@@ -25,4 +27,11 @@ const del = async function ({ id }) {
   return await Contact.findByIdAndDelete(id);
 };
 
-export { getOne, getAll, add, update, del };
+const getVcard = async function ({ uuid }) {
+  const contact = await Contact.findOne({ uuid });
+  const vcard = await generateVcard(contact);
+
+  return { contact, vcard };
+};
+
+export { getOne, getAll, add, update, del, getVcard };

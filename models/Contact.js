@@ -4,16 +4,15 @@ const { Schema } = mongoose;
 
 const ContactSchema = new Schema({
   uuid: String,
-  firstName: String,
+  firstName: { type: String, required: true },
   lastName: String,
   email: { type: String, required: true, unique: true },
-  mobile: String,
-  company: String,
-  position: String,
-  address: String,
-  website: String,
+  mobile: { type: String, required: true },
+  organization: String,
+  title: String,
+  workAddress: String,
   summary: String,
-  profileImage: String,
+  photo: String,
   qrCode: String,
   createdAt: {
     type: Date,

@@ -44,4 +44,18 @@ const del = asyncHandler(async (req, res) => {
   res.status(200).json({ success: true, data: [] });
 });
 
-export { getAll, getOne, add, update, del };
+// @route   GET /contact/vcard/:id
+// @desc    Get Vcard
+// @access  Private
+const vcard = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const data = await contactService.getVcard({ uuid: id });
+  res.set("Content-Type", `text/vcard; name="${data.contact.firstName}.vcf"`);
+  res.set(
+    "Content-Disposition",
+    `inline; filename="${data.contact.firstName}.vcf"`
+  );
+  res.status(200).send(data.vcard);
+});
+
+export { getAll, getOne, add, update, del, vcard };
