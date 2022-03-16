@@ -13,7 +13,7 @@ const ContactSchema = new Schema({
   workAddress: String,
   summary: String,
   photo: String,
-  qrCode: String,
+  qrCode: { key: String, location: String },
   createdAt: {
     type: Date,
     default: Date.now,

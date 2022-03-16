@@ -21,7 +21,21 @@ const getOne = asyncHandler(async (req, res) => {
 // @route   POST /contact
 // @desc    Create a new contact
 // @access  Private
-const add = asyncHandler(async (req, res) => {
+const add = asyncHandler(async (req, res, next) => {
+  const contact = await contactService.getAll({
+    filter: {
+      email: { $eq: req.body.email },
+    },
+  });
+  if (contact.length !== 0) {
+    return next(
+      new ErrorResponse(
+        `Contact already exists with email ${req.body.email}`,
+        400
+      )
+    );
+  }
+
   const newContact = await contactService.add(req.body);
   res.status(200).json({ data: newContact });
 });
